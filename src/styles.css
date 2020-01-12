@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+.brd{
+    border: thin solid #000;
+}.max-top{
+    max-height: 300px;
+}
+.max-title {
+    height: 70px;
+    text-align: center;
+    font-weight: bold;
+}
+.mobile{}
+@media only screen and (max-width: 600px) {
+    .max-top{
+        max-height: auto;        
+    }
+    .max-title {  
+        height: auto;      
+        text-align: center;
+        font-weight: bold;
+        margin: 1rem 0rem;
+    }
+    .mobile{ text-align: center;}
+  }

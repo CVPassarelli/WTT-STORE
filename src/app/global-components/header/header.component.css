@@ -1,0 +1,21 @@
+.bg-color{
+    background-color: rgb(68, 143, 204);    
+}
+a.nav-link, a.navbar-brand{
+    color: #fff;
+}
+.cart-btn{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+}
+.carrinho{display: none;}
+.navbar-toggler-icon{
+    background-image: url('../../../assets/menu.png');
+}
+@media only screen and (max-width: 600px) {
+    .cart-btn{
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 0rem;
+    }
+    .carrinho{display: inline-block;}
+  }

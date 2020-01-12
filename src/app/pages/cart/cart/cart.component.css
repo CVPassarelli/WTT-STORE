@@ -1,0 +1,24 @@
+.border-bottom{
+    border-bottom: 2px solid #ccc;
+}
+.pointer{
+    cursor: pointer;
+}
+.scroll{
+    max-height: none;
+}
+@media only screen and (max-width: 600px) {
+    .max-top{
+        max-height: auto;        
+    }
+    .max-title {  
+        height: auto;      
+        text-align: center;
+        font-weight: bold;
+        margin: 1rem 0rem;
+    }
+    .mobile{ text-align: center;}
+    .scroll{
+       max-height: 200px;
+    }
+  }

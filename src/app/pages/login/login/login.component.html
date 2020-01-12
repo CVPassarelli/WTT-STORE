@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 p-3 mt-desk shadow">
+            <h2 class="text-center">Fazer Login</h2>
+            <form>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email" aria-describedby="emailHelp">                  
+                </div>
+                <div class="form-group">
+                  <label for="senha">Senha</label>
+                  <input type="password" class="form-control" [(ngModel)]="senha" name="senha" id="senha">
+                </div>  
+                <div *ngIf="alerta !== undefined">
+                    <small id="emailHelp" class="form-text text-muted">{{alerta}}</small>
+                </div>              
+                <button type="submit" class="btn btn-primary pull-right" (click)="login()">Logar</button>
+              </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

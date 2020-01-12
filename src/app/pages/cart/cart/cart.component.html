@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 class="text-center mt-5 mb-3">Carrinho</h2><hr>
+    <div class="row">
+        <div class="col-md-8 scroll overflow-auto">
+            <div *ngIf="cart.length > 0; else vazio">
+                <div class="row my-1 border-bottom p-2" *ngFor="let livro of cart">
+                    <div class="col-md-1 col-2">
+                        <img [src]="livro.livro.imagens[0].url" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-7 col-4">{{livro.livro.nome_livro}}</div>
+                    <div class="col-md-1 col-2 text-center">{{livro.quantidade}}</div>
+                    <div class="col-md-1 col-2">{{livro.livro.preco | currency:'BRL'}}</div>
+                    <div class="col-md-2 col-2 text-center"><h3><i class="fa fa-trash mr-2 pointer" (click)="remover(livro)"></i></h3></div>
+                </div>
+            </div><hr>
+            <ng-template #vazio>
+                <h2 class="text-center">Seu carrinho está vazio!</h2>
+            </ng-template>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                  <h3 class="text-right">Total</h3>
+                </div>
+                <div class="card-body text-right">
+                  <h5 class="card-title">{{totalCarrinho | currency:'BRL'}}</h5>
+                  <div *ngIf="totalCarrinho > 0; else disable">
+                    <a routerLink="/checkOut" class="btn btn-primary mt-4">Check-out</a>
+                  </div>
+                  <ng-template #disable>
+                    <a class="btn btn-info mt-4">Check-out</a>
+                  </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

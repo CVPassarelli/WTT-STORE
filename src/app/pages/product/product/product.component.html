@@ -1,0 +1,59 @@
+<div class="container">    
+    <div class="row my-5">
+        <div class="col-md-8 text-center">
+            <img [src]="livroSel.imagens[0].url" class="img-fluid" alt="">
+            <div class="row mt-3 px-3">
+                <div *ngFor="let img of livroSel.imagens" class="col-md-2 col-sm-4 col-3">
+                    <img [src]="img.url" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>{{livroSel.nome_livro}}</h3>
+            <hr>
+            <h5>{{livroSel.preco | currency:'BRL'}}</h5>            
+            <div class="mt-5">
+                <label for="qtd">Quantidade</label>
+                <input id="qtd" type="number" [(ngModel)]="quantidade" step="1" min="1" class="form-control text-center">
+            </div>   
+            <div class="mt-4">
+                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success" (click)="setProduto(livroSel)">Adicionar ao carrinho</button>
+            </div>
+        </div>
+    </div><hr>
+    <div class="row">
+        <div class="col-md-12">
+            <strong>Descrição: </strong> {{livroSel.descricao}} 
+        </div>
+    </div>    
+</div>  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Atenção</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div *ngIf="alerta === undefined; else confirmar">
+            <div class="modal-body">
+            Produto adicionado com sucesso!
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Continuar Comprando</button>
+            <a type="a" class="btn btn-primary" data-dismiss="modal" routerLink="/cart">Finalizar compra</a>
+            </div>
+        </div>
+        <ng-template #confirmar>
+            <div class="modal-body">
+                {{alerta}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>               
+            </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>

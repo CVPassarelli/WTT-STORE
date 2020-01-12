@@ -1,0 +1,19 @@
+<div class="container">
+    <br>
+        <div class="shadow p-3 text-capitalize"><h1>{{titulo}}</h1></div>
+    <br>
+    <div class="row">
+        <div *ngFor="let livro of livrosCategory | FilterCategory: titulo" class="col-md-3 my-4">
+          <img [src]="livro.imagens[0].url" class="card-img-top max-top" alt="...">
+               <div class="max-title">{{livro.nome_livro}}</div>                  
+              <div class="row mobile">
+                <div class="col-md-6">
+                  {{livro.preco | currency:'BRL'}}
+                </div>
+                <div class="col-md-6">
+                  <a [routerLink]="['/produto', livro.id]" class="btn btn-info">Visualizar</a>                 
+                </div>   
+              </div>  
+        </div>
+    </div>
+</div>
